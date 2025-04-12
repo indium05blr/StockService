@@ -3,10 +3,7 @@ package com.oms.stock.stock.controller;
 import com.oms.stock.stock.entity.Stock;
 import com.oms.stock.stock.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +26,8 @@ public class StockController {
                 .orElseThrow(() -> new RuntimeException("Stock Not Found")));
     }
 
-    public Stock addOrUpdateStock(Stock stock) {
+    @PostMapping("/save")
+    public Stock addOrUpdateStock(@RequestBody Stock stock) {
         return stockService.addOrUpdateStock(stock);
     }
 }
