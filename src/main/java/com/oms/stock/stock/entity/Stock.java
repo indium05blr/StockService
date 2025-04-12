@@ -10,12 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "stocks1")
+@Table(name = "Stock")
 public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int stock_id;
 
     private String symbol;
 
@@ -34,7 +34,7 @@ public class Stock {
     }
 
     public Stock(int id, String symbol, String name, BigDecimal price, Integer availability) {
-        this.id = id;
+        this.stock_id = id;
         this.symbol = symbol;
         this.name = name;
         this.price = price;
@@ -44,11 +44,11 @@ public class Stock {
     }
 
     public int getId() {
-        return id;
+        return stock_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int stock_id) {
+        this.stock_id= stock_id;
     }
 
     public String getSymbol() {
